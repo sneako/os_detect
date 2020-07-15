@@ -9,7 +9,7 @@ defmodule OsDetect.Mixfile do
     [
       app: :os_detect,
       elixir: "~> 1.4",
-      description: "Parse operating system from user-agent strings with BrowserScope patterns",
+      description: "Quickly determine the operating system from user-agent strings with binary pattern matching, falling back to BrowserScope patterns for completeness",
       version: @version,
       package: package(),
       docs: docs(),
