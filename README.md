@@ -2,7 +2,9 @@
 
 A simple, fast user-agent parsing library based on BrowserScope's UA database.
 
-This started as a fork of beam-community/ua_parser, stripped down to only return the operating system family. It is much faster and only returns the operating system name as a string.
+This started as a fork of beam-community/ua_parser, stripped down to only return the operating system family. 
+
+It is much faster than other user agent parsing libraries because it users binary pattern matching for many common cases, and it *only* returns the operating system name where as other libraries tend to be purely regex based and return much more information.
 
 ## Installation
 
