@@ -102,6 +102,21 @@ defmodule OsDetectTest do
     end)
   end
 
+  test "bots" do
+    [
+      "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+      "Mozilla/5.0 (compatible; Bingbot/2.0; +http://www.bing.com/bingbot.htm)",
+      "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)",
+      "DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)",
+      "Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)",
+      "Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)",
+      "Sogou web spider/4.0(+http://www.sogou.com/docs/help/webmasters.htm#07)"
+    ]
+    |> Enum.each(fn ua ->
+      assert "bot" == OsDetect.parse(ua)
+    end)
+  end
+
   test "misc" do
     [{"mac_powerpc", "Mozilla/4.0 (compatible; MSIE 4.5; Mac_PowerPC)"}]
     |> Enum.each(fn {expected, ua} ->
