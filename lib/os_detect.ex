@@ -67,14 +67,18 @@ defmodule OsDetect do
   defp extract(<<"Windows Phone", _rest::binary()>>), do: "windows phone"
   defp extract(<<"Windows Mobile", _rest::binary()>>), do: "windows phone"
   defp extract(<<"Windows NT", _rest::binary()>>), do: "windows"
+  defp extract(<<"PlayStation", _rest::binary()>>), do: "playstation"
   # bots
   defp extract(<<"Googlebot", _rest::binary()>>), do: "bot"
+  defp extract(<<"AdsBot", _rest::binary()>>), do: "bot"
   defp extract(<<"Bingbot", _rest::binary()>>), do: "bot"
   defp extract(<<"Slurp", _rest::binary()>>), do: "bot"
   defp extract(<<"DuckDuckBot", _rest::binary()>>), do: "bot"
   defp extract(<<"Baiduspider", _rest::binary()>>), do: "bot"
   defp extract(<<"YandexBot", _rest::binary()>>), do: "bot"
   defp extract(<<"Sogou", _rest::binary()>>), do: "bot"
+  defp extract(<<"Yahoo Ad monitoring", _rest::binary()>>), do: "bot"
+  defp extract(<<"AhrefsBot", _rest::binary()>>), do: "bot"
 
   defp extract(<<_::binary-size(1), rest::binary()>>), do: extract(rest)
   defp extract(""), do: nil

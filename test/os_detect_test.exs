@@ -92,6 +92,11 @@ defmodule OsDetectTest do
     end)
   end
 
+  test "playstation" do
+    ua = "Mozilla/5.0 (PlayStation; PlayStation 4/8.00) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15"
+    assert "playstation" == OsDetect.parse(ua)
+  end
+
   test "unknown" do
     [
       "Opera/9.80 (J2ME/MIDP; Opera Mini/5.1.21214/28.2725; U; ru) Presto/2.8.119 Version/11.10",
@@ -110,7 +115,10 @@ defmodule OsDetectTest do
       "DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)",
       "Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)",
       "Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)",
-      "Sogou web spider/4.0(+http://www.sogou.com/docs/help/webmasters.htm#07)"
+      "Sogou web spider/4.0(+http://www.sogou.com/docs/help/webmasters.htm#07)",
+      "Mozilla/5.0 (compatible; AhrefsBot/7.0; +http://ahrefs.com/robot/)",
+      "AdsBot-Google (+http://www.google.com/adsbot.html)",
+      "Mozilla/5.0 (compatible; Yahoo Ad monitoring; https://help.yahoo.com/kb/yahoo-ad-monitoring-SLN24857.html)  tands-prod-eng.hlfs-prod---sieve.hlfs-desktop/1605741856-0"
     ]
     |> Enum.each(fn ua ->
       assert "bot" == OsDetect.parse(ua)
