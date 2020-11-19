@@ -17,7 +17,7 @@ Add `os_detect` to your `mix.exs` dependencies:
 ```elixir
 def deps do
   [
-    {:os_detect, "~> 0.1.0"}
+    {:os_detect, "~> 0.1.2"}
   ]
 end
 ```
