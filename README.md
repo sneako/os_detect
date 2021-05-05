@@ -1,14 +1,18 @@
 # OsDetect
 
-A simple, fast user-agent parsing library based on BrowserScope's UA database.
-
-This started as a fork of beam-community/ua_parser, stripped down to only
-return the operating system family.
+A simple, fast user-agent parsing library.
 
 It is much faster than other user agent parsing libraries because it users
 binary pattern matching for many common cases, and it *only* returns the
-operating system name where as other libraries tend to be purely regex based
-and return much more information.
+operating system name, browser name, and a type atom.
+
+It can also detect most types of bots/scrapers that are not actively trying to
+hide their identities.
+
+See [OsDetect.Result](/lib/os_detect/result.ex) for all possible types.
+
+Most other libraries tend to be purely regex based and return more information,
+much more slowly.
 
 ## Installation
 
@@ -17,7 +21,7 @@ Add `os_detect` to your `mix.exs` dependencies:
 ```elixir
 def deps do
   [
-    {:os_detect, "~> 0.1.2"}
+    {:os_detect, "~> 0.2.0"}
   ]
 end
 ```
@@ -25,6 +29,6 @@ end
 ## Usage
 
 ```elixir
-iex> ua = OsDetect.parse("Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_7; en-us) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Safari/530.17 Skyfire/2.0")
-"macos"
+OsDetect.parse("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36")
+%OsDetect.Result{browser: "chrome", os: "mac os", type: :desktop}
 ```

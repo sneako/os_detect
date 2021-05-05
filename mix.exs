@@ -2,18 +2,14 @@ defmodule OsDetect.Mixfile do
   use Mix.Project
 
   @name "OsDetect"
-  @version "0.1.2"
+  @version "1.0.0"
   @repo_url "https://github.com/sneako/os_detect"
 
   def project do
     [
       app: :os_detect,
       elixir: "~> 1.4",
-      description: """
-        Quickly determine the operating system from user-agent strings with
-        binary pattern matching, falling back to BrowserScope patterns for
-        completeness.
-      """,
+      description: "Fast user-agent parsing with binary pattern matching.",
       version: @version,
       package: package(),
       docs: docs(),
@@ -27,7 +23,6 @@ defmodule OsDetect.Mixfile do
 
   defp deps do
     [
-      {:yamerl, "~> 0.7"},
       {:ex_doc, ">= 0.0.0", only: :dev}
     ]
   end
