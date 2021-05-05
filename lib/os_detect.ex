@@ -179,6 +179,9 @@ defmodule OsDetect do
   defp extract_os(<<"Linux x86_64", rest::binary()>>),
     do: {:ok, %Result{type: :desktop, os: "linux"}, rest}
 
+  defp extract_os(<<"Linux; x86_64", rest::binary()>>),
+    do: {:ok, %Result{type: :desktop, os: "linux"}, rest}
+
   defp extract_os(<<"Linux aarch64", rest::binary()>>),
     do: {:ok, %Result{type: :desktop, os: "linux"}, rest}
 
@@ -382,6 +385,9 @@ defmodule OsDetect do
 
   defp extract_browser(acc, <<"like Android", rest::binary()>>),
     do: {:ok, %{acc | browser: "android browser"}, rest}
+
+  defp extract_browser(%{os: "linux"}, <<" WPE", _::binary()>>),
+    do: smart_tv("generic set top box")
 
   defp extract_browser(%{os: "android"}, <<"CTV STB", _::binary()>>), do: smart_tv("android tv")
 

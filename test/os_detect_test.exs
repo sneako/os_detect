@@ -601,6 +601,24 @@ defmodule OsDetectTest do
     end)
   end
 
+  test "generic set top box" do
+    [
+      "Mozilla/5.0 (Linux; x86_64 GNU/Linux) AppleWebKit/601.1 (KHTML, like Gecko) Version/8.0 Safari/601.1 WPE",
+      "Mozilla/5.0 (Linux; x86_64 GNU/Linux) AppleWebKit/601.1 (KHTML, like Gecko) Version/8.0 Safari/601.1 WPE AAMP/2.0.0",
+      "Mozilla/5.0 (Linux; x86_64 GNU/Linux) AppleWebKit/601.1 (KHTML, like Gecko) Version/8.0 Safari/601.1 WPE?cnteln=30",
+      "Mozilla/5.0 (Linux; x86_64 GNU/Linux) AppleWebKit/601.1 (KHTML, like Gecko) Version/8.0 Safari/601.1 WPE;Xfinity",
+      "Mozilla/5.0 (Linux; x86_64 GNU/Linux) AppleWebKit/601.1 (KHTML, like Gecko) Version/8.0 Safari/601.1 WPE, X1_STB_/1.0.0.0 (X1, , )",
+      "Mozilla/5.0 (Linux; x86_64 GNU/Linux) AppleWebKit/601.1 (KHTML, like Gecko) Version/8.0 Safari/601.1 WPE AAMP/2.0.0,gzip(gfe),gzip(gfe)",
+      "Mozilla/5.0 (Linux; x86_64 GNU/Linux) AppleWebKit/601.1 (KHTML, like Gecko) Version/8.0 Safari/601.1 WPE partnerId:xglobal",
+      "Mozilla/5.0 (Linux; x86_64 GNU/Linux) AppleWebKit/601.1 (KHTML, like Gecko) Version/8.0 Safari/601.1 WPE,gzip(gfe),gzip(gfe)",
+      "Mozilla/5.0 (Linux; x86_64 GNU/Linux) AppleWebKit/601.1 (KHTML, like Gecko) Version/8.0 Safari/601.1 WPE, comcastSTB/1.0.0.0 (PERF2)"
+    ]
+    |> Enum.each(fn ua ->
+      assert %Result{os: "generic set top box", browser: "generic set top box", type: :smart_tv} =
+               OsDetect.parse(ua)
+    end)
+  end
+
   test "benq" do
     [
       "Mozilla/5.0 (Linux; Andr0id 6.0; BenQ Smart Display Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36 OPR/46.0.2207.0 OMI/4.11.3.57.JUNAND2.14 Model/Changhong-MSD6586"
