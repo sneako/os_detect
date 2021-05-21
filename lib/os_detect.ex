@@ -236,8 +236,8 @@ defmodule OsDetect do
   defp extract_os(<<"jp.co.yahoo.android.ybrowser", rest::binary()>>),
     do: {:ok, %Result{os: "android", browser: "yahoo", type: :mobile}, rest}
 
-  # defp extract_os(<<"Kindle Fire", rest::binary()>>),
-  #   do: {:ok, %Result{os: "kindle fire", type: :tablet}, rest}
+  defp extract_os(<<"Kindle", rest::binary()>>),
+    do: {:ok, %Result{os: "kindle fire", type: :tablet}, rest}
 
   defp extract_os(<<"; KFT", rest::binary()>>),
     do: {:ok, %Result{os: "kindle fire", type: :tablet}, rest}
@@ -261,6 +261,7 @@ defmodule OsDetect do
   defp extract_os(<<"Applebot", _::binary()>>), do: {:error, :bot}
   defp extract_os(<<"AdsBot", _::binary()>>), do: {:error, :bot}
   defp extract_os(<<"Bingbot", _::binary()>>), do: {:error, :bot}
+  defp extract_os(<<"bingbot", _::binary()>>), do: {:error, :bot}
   defp extract_os(<<"Slurp", _::binary()>>), do: {:error, :bot}
   defp extract_os(<<"DuckDuckBot", _::binary()>>), do: {:error, :bot}
   defp extract_os(<<"Baiduspider", _::binary()>>), do: {:error, :bot}
