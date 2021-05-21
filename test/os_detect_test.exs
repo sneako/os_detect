@@ -280,7 +280,9 @@ defmodule OsDetectTest do
       {"chrome",
        "Mozilla/5.0 (Linux; Android 7.1.2; Kindle Fire HDX) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.105 Mobile Safari/537.36"},
       {"webview",
-       "Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; Amazon Kindle Fire Build/JDQ39E; CyanogenMod-10.1) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"}
+       "Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; Amazon Kindle Fire Build/JDQ39E; CyanogenMod-10.1) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"},
+      {"unknown",
+       "Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600x800; rotate)"}
     ]
     |> Enum.each(fn {browser, ua} ->
       assert %Result{browser: ^browser, os: "kindle fire", type: :tablet} = OsDetect.parse(ua)
@@ -889,6 +891,7 @@ defmodule OsDetectTest do
   test "bots" do
     [
       "Mozilla/5.0 (compatible; Bingbot/2.0; +http://www.bing.com/bingbot.htm)",
+      "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)",
       "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)",
       "DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)",
       "Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.0 Safari/534.34",
