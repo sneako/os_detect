@@ -586,7 +586,8 @@ defmodule OsDetectTest do
       "Mozilla/5.0 (Linux; GoogleTV 3.2; NSZ-GS7GX70 Build/MASTER) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.77 Safari/534.24",
       "Mozilla/5.0 (Linux; Android 6.0.1; NEXBOX-A95X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36",
       "TV Bro/1.0 Mozilla/5.0 (Linux; Android 9; SHIELD Android TV Build/PPR1.180610.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.93 Safari/537.36",
-      "Mozilla/5.0 (Linux; Android 5.1.1; ZIDOO_X6 Pro Build/LMY48G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.98 Safari/537.36"
+      "Mozilla/5.0 (Linux; Android 5.1.1; ZIDOO_X6 Pro Build/LMY48G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.98 Safari/537.36",
+      "Mozilla/5.0 (Linux; Android 9; MIBOX4 Build/PI; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.93 Mobile Safari/537.36"
     ]
     |> Enum.each(fn ua ->
       assert %Result{os: "android tv", browser: "android tv", type: :smart_tv} =

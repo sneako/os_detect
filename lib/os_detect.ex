@@ -317,6 +317,7 @@ defmodule OsDetect do
   defp extract_browser(_, <<"Android TV", _::binary()>>), do: smart_tv("android tv")
   defp extract_browser(_, <<"ZIDOO", _::binary()>>), do: smart_tv("android tv")
   defp extract_browser(_, <<"NEXBOX", _::binary()>>), do: smart_tv("android tv")
+  defp extract_browser(_, <<" MIBOX", _::binary()>>), do: smart_tv("android tv")
   defp extract_browser(_, <<"XBOX", _::binary()>>), do: smart_tv("xbox")
   defp extract_browser(_, <<"; AFT", _::binary()>>), do: smart_tv("fire tv")
   defp extract_browser(_, <<"BRAVIA", _::binary()>>), do: smart_tv("sony bravia")
