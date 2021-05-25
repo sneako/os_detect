@@ -2,7 +2,7 @@ defmodule OsDetect.Mixfile do
   use Mix.Project
 
   @name "OsDetect"
-  @version "1.0.2"
+  @version "1.0.3"
   @repo_url "https://github.com/sneako/os_detect"
 
   def project do
